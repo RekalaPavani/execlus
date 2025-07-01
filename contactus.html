@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #111;
+    }
+
+    .contact-section {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 140px; 
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .contact-left {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .contact-left h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .contact-left h1 span {
+      display: block;
+    }
+
+    .contact-left p {
+      margin-top: 20px;
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 90%;
+    }
+
+    .contact-line {
+      border-top: 1px solid #000;
+      margin: 20px 0;
+    }
+
+    .vertical-label {
+      position: absolute;
+      left: -40px;
+      top: 20px;
+      transform: rotate(-90deg);
+      font-weight: bold;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: #007bff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+
+    .contact-info {
+      font-size: 1rem;
+    }
+
+    .contact-info i {
+      font-style: italic;
+    }
+
+    .contact-right {
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+
+    .contact-right h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .contact-form button {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 3px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056b3;
+    }
+
+header {
+  background: transparent;
+  color: white;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: flex-start; /* align items to the left */
+  align-items: center;
+  gap: 500px; /* space between logo and nav */
+  position: fixed;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  z-index: 998;
+}
+
+
+    .logo {
+      height: 70px;
+    }
+
+    .logo-wrapper {
+      transition: opacity 0.3s ease;
+    }
+   .logo-hidden .logo-wrapper {
+     opacity: 0;
+     pointer-events: none;
+    }
+
+
+
+    nav a {
+      position: relative;
+      color: #0056b3;
+      margin-left: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: color 0.3s ease;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #007bff;
+      border-radius: 6px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+      z-index: -1;
+    }
+
+    nav a:hover::before {
+      transform: scaleX(1);
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .top-contact-bar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 8px 90px;
+      border-bottom-left-radius: 40px;
+      font-size: 15px;
+      z-index: 999;
+    }
+
+    .top-contact-bar i {
+      margin-right: 6px;
+    }
+
+    .top-contact-bar .email,
+    .top-contact-bar .phone {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+
+    .top-contact-bar .separator {
+      margin: 0 10px;
+      border-left: 1px solid white;
+      height: 16px;
+    }
+
+    .top-contact-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .top-contact-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .marquee-text {
+      margin-left: 30px;
+      white-space: nowrap;
+      overflow: hidden;
+      max-width: 200px;
+    }
+
+    .marquee-text span {
+      display: inline-block;
+      animation: scroll 10s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    } footer div {
+      margin: 10px;
+    }
+
+    footer h4 {
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+
+  </style>
+</head>
+<body>
+<div class="top-contact-bar">
+  <div class="marquee-text">
+    <span>🚚 Free shipping for UK, USA, European countries</span>
+  </div>
+  <div class="email">
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:info@exeluslabs.com">info@exeluslabs.com</a>
+  </div>
+  <div class="separator"></div>
+  <div class="phone">
+    <i class="fas fa-phone"></i>
+    <a href="tel:+917989540212">+91 79895 40212</a>
+  </div>
+</div>
+
+  <header>
+    <div class="logo-wrapper">
+      <img src="chem.png" alt="Logo" class="logo" />
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.Html">Products</a>
+      <a href="customsynthesis.html">CustomSynthesis</a>
+      <a href="aboutus.html">AboutUs</a>
+      <a href="contactus.html">ContactUs</a>
+    </nav>
+  </header>
+<main>
+<section class="contact-section">
+  <div class="contact-left">
+    <div class="vertical-label">Contact</div>
+    <h1>Reach out &<span>Connect with Us</span></h1>
+    <div class="contact-line"></div>
+    <p>
+      Let's bring your requirements to life! We're excited to hear about your ideas and help you turn them into reality. Whether you have a specific project or just want to explore possibilities, we're here for you.
+    </p>
+
+    <div class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div class="contact-info">+91 79895 40212</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div class="contact-info">+91 97096 66777</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-info">info@exeluslabs.com</div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div class="contact-info"><i>Suraram, Hyderabad, Telangana - 500055</i></div>
+    </div>
+  </div>
+
+  <div class="contact-right">
+    <h2>Get In Touch With Us And Enjoy<br>Top-Notch Support</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your name" required />
+      <input type="email" placeholder="Your email" required />
+      <input type="tel" placeholder="Your phone no" />
+      <textarea placeholder="Write message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+<section style="background: #f9f9f9; padding: 40px 0;">
+  <h2 style="text-align: center; margin-bottom: 20px;">Our Location</h2>
+  <div style="width: 100%;">
+    <iframe 
+   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30433.936984991356!2d78.41817735162935!3d17.543655405585547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb8fb593e4d65b%3A0x3bc97157a1deb28d!2sSuraram%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1751014557992!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" 
+  </div>
+</section>
+</main>
+<footer>
+  <div style="background:#007bff; color:white; padding:40px 20px;">
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-around; gap:40px;">
+      <div>
+        <h4>Products</h4>
+        <a href="#"><i class="fas fa-flask" style="margin-right:8px;"></i>Impurities</a>
+        <a href="#"><i class="fas fa-vials" style="margin-right:8px;"></i>Nitrosamine</a>
+        <a href="#"><i class="fas fa-atom" style="margin-right:8px;"></i>Stable Isotopes</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#"><i class="fas fa-cogs" style="margin-right:8px;"></i>Custom Synthesis</a>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <a href="#"><i class="fas fa-users" style="margin-right:8px;"></i>Careers</a>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <a href="https://www.instagram.com/exelus_labs/?igsh=MXEyeWU2bXF0NHdhcg%3D%3D#"><i class="fab fa-instagram" style="margin-right:8px;"></i>Instagram</a>
+        <a href="https://www.linkedin.com/company/exelus-labs-private-limited-1/posts/?feedView=all"><i class="fab fa-linkedin" style="margin-right:8px;"></i>LinkedIn</a>
+        <a href="tel:+917989540212"><i class="fas fa-phone" style="margin-right:8px;"></i>+91 79895 40212</a>
+        <a href="tel:+919709666777"><i class="fas fa-phone" style="margin-right:8px;"></i>+91 97096 66777</a>
+        <a href="mailto:info@exeluslabs.com"><i class="fas fa-envelope" style="margin-right:8px;"></i>info@exeluslabs.com</a>
+      </div>
+    </div>
+
+    <div style="margin-top:30px; text-align:center; font-size:0.9rem; color:rgba(255,255,255,0.8);">
+      © 2025 EXELUSLABS, INC. ALL RIGHTS RESERVED.
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+      header.classList.add('logo-hidden');
+    } else {
+      header.classList.remove('logo-hidden');
+    }
+  });
+</script>
+
+
+</body>
+</html>
